@@ -279,3 +279,9 @@ print(summation)
 #LIST COMPREHESSIONS( PAGE 97 )
 #A list comprehension combines the for loop and the creation of new elements into one line, and automatically appends each new element.
 #The following example builds the same list of square numbers you saw earlier but uses list comprehension:
+squares = [value**2 for value in range(1, 11)]
+print(squares)
+#To use this syntax , begin with a descriptive name for the list, such as squares. Next, open a set of square brackets and define the expression for the values you want to store in the new list. in this example the expression is value**2 which raises the value to the second power.
+#Then write a for loop to generate the numbers you want to feed into the expression, and close the square brackets
+#The for loop in this example feeds the values 1 through 10 into the expression value**2.
+#Notice that no colon is used at the end of the for statement
