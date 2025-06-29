@@ -1,0 +1,8 @@
+digits = list(range(10))
+print(digits)
+minimum = min(digits)
+maximum = max(digits)
+summation = sum(digits)
+print(minimum)
+print(maximum)
+print(summation)
