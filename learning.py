@@ -285,3 +285,67 @@ print(squares)
 #Then write a for loop to generate the numbers you want to feed into the expression, and close the square brackets
 #The for loop in this example feeds the values 1 through 10 into the expression value**2.
 #Notice that no colon is used at the end of the for statement
+
+#WORKING WITH PART OF A LIST
+#Slicing a List
+#To make a slice, you specify the first and the last elements you want to work with.
+#To output the first three elements in a list, you would request indices 0 htrough 3, which would return elements 0,1 and 2.
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[0:3])
+#If you want the second, third and fourth items in  a list, you would start the slice at index 1 and end at index four
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[1:4])
+#if you omit the first index in a slice, Python automatically starts your slice at the begining of the list
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[:4])
+#if you omit the second index in  a slice , python automatically begins from the first specified index to the end of the list
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[2:])
+#Recall that a negative index returns an element a certain distance from the end of a list
+#for example if we want to output the last three players on the roster , we can use the slice player[-3:]
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[-3:])
+#if you include a third value in the brackets indicating a slice. this tells python how many items to skip between items in the specified range.
+#list[start:stop:step]
+# List of players
+players = ['charles', 'martina', 'michael', 'florence', 'eli']
+
+print("Original list of players:")
+print(players)
+
+# Example 1: Take every 2nd player from the whole list
+print("\nEvery 2nd player (players[::2]):")
+print(players[::2])  # ['charles', 'michael', 'eli']
+
+# Example 2: From index 1 to 4, skip every 2nd
+print("\nPlayers from index 1 to 4, skipping one in between (players[1:5:2]):")
+print(players[1:5:2])  # ['martina', 'florence']
+
+# Example 3: Reverse the list
+print("\nReversed list (players[::-1]):")
+print(players[::-1])  # ['eli', 'florence', 'michael', 'martina', 'charles']
+
+# Example 4: Get every 2nd name starting from index 1
+print("\nEvery 2nd player starting from index 1 (players[1::2]):")
+print(players[1::2])  # ['martina', 'florence']
+
+
+#LOOPING THROUGH A SLICE
+#You can use a slice in a for loop if you want to loop through a subset of the elements in a list.
+players = ['charles', 'martina', 'michael', 'florence','eli']
+print("Here are the first three players on my team")
+for player in players[:3]:
+    print(player.title())
+#Instead of looping through the entire list of the players python loops through only the first three names and prints their names
+
+#COPYING A LIST
+#Often you will want to start with an existing list and make an entirely new list based on the first one.
+#To copy a list you can make a slice that includes the entire original list by omitting the first index and the second index( [:] ). This tells python to make a slice that starts at the first item and ends with the last item, producing a copy of the entire list
+#For example, imagine we have a list of our favorite foods and want to make a separate list of foods that a friend likes. This friend likes everything in our list so far, so we can create their list by copying ours:
+my_foods = ["pizza", "falafel", "carrot cake"]
+friends_food = my_foods[:]
+print("My favourite foods are:")
+print(my_foods)
+ 
+print("\nMy friend's favourite foods are:")
+print(friends_food)
