@@ -346,6 +346,171 @@ my_foods = ["pizza", "falafel", "carrot cake"]
 friends_food = my_foods[:]
 print("My favourite foods are:")
 print(my_foods)
- 
-print("\nMy friend's favourite foods are:")
+#Proving that we have two separate lists... by adding a new food to each list and showing that each list keeps track of the appropriate person's favorite foods:
+my_foods.append('cannoli')
+friends_food.append('ice_cream')
+print("My favorite foods are:")
+print(my_foods)
+print("\nMy friend's favorite foods are:")
 print(friends_food)
+
+#TUPLES
+#Python refers to values that cannot change as immutable and an immutable list is called a tuple
+#A tupe looks exactly like a list except you use parenthesis instead of square brackets.once you define a tuple you can access individual elements by using each item's index, just as you would for a list
+#For example, if we have a rectangle that should always be a certain size, we can ensure that it's size doesn't change by putting the dimensions into a tuple:
+dimensions = (200,50)
+print(dimensions[0])
+print(dimensions[1])
+#Tuples are technically defined by the presence of a comma; the parenthesis make them look neater and more readable. if you want to define a tuple with one element , you need to include a trailing comma:
+my_t = (3,)#Tuple
+#Looping through all value in a Tuple
+for dimension in dimensions:
+    print(dimension)
+#Writing over a Tuple
+#Although you can't modify a tuple, you can assign a new value to a variable that represents a tuple.
+#So if we wanted to change our dimensions, we could redine the entire tuple
+dimensions = (200, 50)
+print("Original dimensions:")
+for dimension in dimensions:
+    print(dimension)
+dimensions = (400,100)
+print("\nModidfied dimensions:")
+for dimension in dimensions:
+    print(dimension)#Python doesn't raise any errors this time because reasigning a variable is valid:
+#when compared with lists, tuples are simple data structures that are used when you want to store a set of values that should not be changed throughout the life of a program.
+
+
+#STYLING YOUR CODE(PAGE 106)
+#Appendix B shows you how to configure your text editor so it always inserts four spaces each time you press the tab key and shows a vertical guideline to help you follow the 79-character limit.
+
+#if STATEMENTS
+#programming oftenly involves examining a set of conditions and deciding which action to take based on those conditions.
+#Python's if statements allows you to examine the current state of a progran and respond appropriately to that state.
+cars = ['audi', 'bmw', 'subaru', 'toyota']
+for car in cars:
+    if car == 'bmw':
+        print(car.upper())
+    else:
+        print(car.title())
+#The loop in this example first checks if the current value of car is 'bmw'. If it is, the value is printed in uppercase. if the value of the car is anything other than 'bmw', it is printed in title case
+#Testing for equality is case sensitive in Python. For example two value with different capitalization are not considerede equal:
+#If case matters, this behavior is advantageous. But if case doesn't matter and instead you just want to test the value of the a variable , you can convert the variable's value to lowercase before doing the comparison:
+car = 'Audi'
+car.lower() == 'audi'
+#Checking for inequality
+requested_topping = ['mushrooms', 'banana', 'anchoives']
+for topping in requested_topping:
+   if topping != 'anchoives':
+       #To insert a variable's value into a string, use f strings
+       print(f"{topping}\tHold the anchoives")
+   else:
+       print(f"{topping}\tWhat the helly")
+
+#Conditional Statements with numbers
+numbers = list(range(0,11,2))
+for number in numbers:
+    if number % 2 == 0:
+        print(f"{number} is an even number")
+    else:
+        print(f"{number} is an odd number")
+ages = list(range(1,23))
+for age in ages:
+    if age >= 18:
+        print(f"Since you are {age} years old you are older enough to use our site.....WELCOME!!")
+    else:
+        print(f"Sorry, until you are old enough you are not permitted to use our sight. you are just {age} yaers old")
+#Each mathematical comparison can be used as part of an if statement, which can help you detect the exact conditions of interest.:( = , < , > , =< , >= , % 2 == 0) and many other more
+#Checking Multiple Conditions
+#For example sometimes you might need two conditions to be True to take an action. Other times you might be satisfied with just one condition being True. The keywords AND and OR can help you in these situations.
+#Using and to Check Multiple Conditions
+#To check whether two conditions are bothy True simultaneously, use the keyword " and " to combine the two conditional tests; if each test passes, the overall expression evaluates to True. If either test fails or if both tests fail, the expression evaluates to False.
+#Example, checking if two people are both over 21
+person_1 = 18
+person_2 = 22
+if person_1 >= 21 and person_2 >= 21:
+    print("They are both over 21")
+else:
+    print("Some of the above conditions have not been met")
+
+person_3 = 23
+person_4 = 24
+if person_3 >= 21 and person_4 >= 21:
+    print("They are both over 21")
+else:
+    print("Some of the above conditions have not been met")
+#Using " or " to check multiple conditions
+#The keyword " or " allows you to check for multiple conditions as well, but it passes when either or both of the individual tests pass. An " or " expression fails only when both individual tests fail
+#This time we will look id at least one person is 21
+person_1 = 19
+person_2 = 20
+if person_1 >= 21 or person_2 >= 21:
+    print("At least one of them is 21")
+else:
+    print("None of them is over 21")
+
+person_3 = 23
+person_4 = 17
+if person_3 >= 21 or person_4 >= 21:
+    print("At least one of them is 21")
+else:
+    print("None of them is over 21")
+
+#Checking whether a value is in a List( page 114)
+#To find whether a particular value is already in a list, use the keyword " in "
+#We will make a list of toppings a customer has requested for a pizza and then check whether certain toppings are in the list.
+requested_toppings = ['mushrooms', 'onions', 'pineapple']
+if 'mushrooms' in requested_toppings:
+    print("CORRECT")
+else:
+    print("NULL")
+#This technique is powerfull  because you can create a list of essential values and then easily check whether the value you are testing matches one of the values in the lsit
+
+#Checking Whether a Value is Not in a List
+#You can use the keyword " not  in " in this situation
+#For example consider a list of users who are banned from commenting in a forrum, you can check whether a user has been banned before allowing that person to submit a comment:
+banned_users = ['andrew', 'carolina', 'david']
+user = ['juliet', 'jane', 'andrwe', 'david']
+if user not in banned_users:
+    print(f"{user.title()}, you can post a response if you wish.")
+else:
+    print(f"{user.title()} sorry but you are banned from posting a comment")
+#The if-else structure works well in situations in which you want Python to always execute one of two possible actions.
+
+#The if-elif-else Chain
+#Often you will need to test more than two possible situations, and to evaluate these you can use Python's if-elif-else syntax. Python executes only one block in an if-elif-else chain. it runs each conditional test in order until one passes. when atest passes, the code following that test is executed and python skips the rest of the tests.
+#For example consider an amusement park that charges different rates for different age groups.
+# Admission for anyone under age 4 is free.
+#Admission for anyone between the ages of 4 and 18 is $25.
+#Admission for anyone age 18 or older is $40.
+# we want to use the if statement to determine a person's admission rate
+age = 12
+if age < 4:
+    print("Your admission cost is $0.")
+elif age < 18:
+    print("Your admission cost is $25.")
+else:
+    print("Your admission cost is $40.")
+#Different approach
+age = 12
+if age < 4:
+    price = 0
+elif age < 18:
+    price = 25
+else:
+    price = 40
+print(f"Your admission cost is ${price}.")
+#Using Multiple elif Blocks.
+#You can use as many elif blocks in your code as you like.
+age = 65
+if age < 4:
+    price = 0
+elif age < 8:
+    price = 25
+elif age < 65:
+    price = 40
+else:
+    price = 20
+print(f"Your admission cost is ${price}")
+
+#Omitting the else Block
+

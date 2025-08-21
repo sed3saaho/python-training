@@ -240,7 +240,108 @@ print(players[2:])
 players = ['charles', 'martina', 'michael', 'florence', 'eli']
 print(players[-3:])
 
+#COPYING A LIST
+my_foods = ["pizza", "falafel", "carrot cake"]
+friends_food = my_foods[:]
+print("My favourite foods are:")
+print(my_foods)
+#Proving that we have two separate lists... by adding a new food to each list and showing that each list keeps track of the appropriate person's favorite foods:
+my_foods.append('cannoli')
+friends_food.append('ice_cream')
+print("My favorite foods are:")
+print(my_foods)
+print("\nMy friend's favorite foods are:")
+print(friends_food)
+#Working with Tuples
+available_foods = ("Pilau", "Matumbo", "Kuku", "Nyama Choma", "Eggs")
+for food in available_foods:
+    print(food)
+available_foods = ("Rice", "Mtura", "Kuku", "Nyama Choma", "Eggs")
+print('\nModified foods')
+for food in available_foods:
+    print(food)
 
+#if STATEMENTS
+cars = ['audi', 'bmw', 'subaru', 'toyota']
+for car in cars:
+    if car == 'bmw':
+        print(car.upper())
+    else:
+        print(car.title())
+requested_topping = ['mushrooms', 'banana', 'anchoives']
+for topping in requested_topping:
+   if topping != 'anchoives':
+       print(f"{topping}\tHold the anchoives")
+   else:
+       print(f"{topping}\tWhat the helly")
+#Conditional statements with numbers
+numbers = list(range(0,11))
+for number in numbers:
+    if number % 2 == 0:
+        print(f"{number} is an even number")
+    else:
+        print(f"{number} is an odd number")
+
+ages = list(range(1,23))
+for age in ages:
+    if age >= 18:
+        print(f"Since you are {age} years old you are older enough to use our site.....WELCOME!!")
+    else:
+        print(f"Sorry, until you are old enough you are not permitted to use our sight. you are just {age} yaers old")
+
+#Using the keyword " and " to check multiple conditions:
+person_1 = 18
+person_2 = 22
+if person_1 >= 21 and person_2 >= 21:
+    print("They are both over 21")
+else:
+    print("Some of the above conditions have not been met")
+
+person_3 = 23
+person_4 = 24
+if person_3 >= 21 and person_4 >= 21:
+    print("They are both over 21")
+else:
+    print("Some of the above conditions have not been met") 
+
+#Using the Keyword " or " to check multiple conditions:
+person_1 = 19
+person_2 = 20
+if person_1 >= 21 or person_2 >= 21:
+    print("At least one of them is 21")
+else:
+    print("None of them is over 21")
+
+person_3 = 23
+person_4 = 17
+if person_3 >= 21 or person_4 >= 21:
+    print("At least one of them is 21")
+else:
+    print("None of them is over 21")
+
+#Checking whether a value is in a List using the keyword " in "
+requested_toppings = ['mushrooms', 'onions', 'pineapple']
+if 'mushrooms' in requested_toppings:
+    print("CORRECT")
+else:
+    print("NULL")
+
+age = 12
+if age < 4:
+    print("Your admission cost is $0.")
+elif age < 18:
+    print("Your admission cost is $25.")
+else:
+    print("Your admission cost is $40.")
+#Different approach
+age = 12
+if age < 4:
+    price = 0
+elif age < 18:
+    price = 25
+else:
+    price = 40
+print(f"Your admission cost is ${price}.")
 
 
 
