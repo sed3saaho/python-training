@@ -513,4 +513,55 @@ else:
 print(f"Your admission cost is ${price}")
 
 #Omitting the else Block
+#Python does not require an else block at the end of an if-elif-else chain. Sometimes an else block is useful; sometimes it is clearer to use an additional elif statement to handle the situation you are trying to model.
+age = 12
+if age < 4:
+ price = 0
+elif age < 18:
+ price = 25
+elif age < 65:
+ price = 40
+elif age >= 65:
+ price = 20
+print(f"Your admission cost is ${price}.")
+#The extra elif block at 1 assigns a price of $20 when the person is 65 or older, which is a bit clearer than the general else block. with this change every block of code must pass a specific test in order to be executed
+#The else block is a catch-all block that handlles any values that don't fit into the other conditions in the if-elif-else chain. and that can sometimes include invalid or even malicious  data.
 
+#Testing multiple conditions
+# The if-elif-else chain is powerful, but it's only  appropriate to use when you just need one test to pass. as soon as Python finds one test that passes, it skips the rest of the tests. This behavior is beneficial, because it's efficient and allows you to test for one specific condition.
+#However sometimes  it's important to check all of the conditions of interest. in this case you should use a series of if statements  with no elif or else blocks. this technique makes sense when more than one condition could be True, and you want to act on every condition that is True.
+requested_toppings = ['mushrooms', 'extra cheese']
+
+if 'mushrooms' in requested_toppings:
+    print("Adding mushrooms.")
+if 'pepperoni' in requested_toppings:
+    print('Adding Pepperoni')
+if 'extra cheese' in requested_toppings:
+    print("Adding extra cheese.")
+print("\nFinished making pizza!")
+#In summary, if you want only one block of code to run, use an if-elif-else chain. if more than one block of code needs to run, use a series of independent if stateements.
+alien_color = 'green'
+if alien_color == 'green':
+    print("Congratulations!! You have earned 5 Points")
+#Exrecise 2
+alien_color = 'green'
+if alien_color == 'green':
+    print("Congratulations!! You have earned 5points")
+elif alien_color == 'yellow':
+    print("Congratulations!! You have earned 10 points")
+elif alien_color == 'red':
+    print("Congratulations!! You earned 15 points")
+#Exercise 3 (Stages of Life)
+age = 24
+if age < 2:
+    print("You are still a baby")
+if age < 4:
+    print("You are a toddler")
+if age < 13:
+    print("you are still a kid")
+if age < 20:
+    print("You are just a teenager")
+if age < 65:
+    print("You are now an adult")
+if age >= 65:
+    print("You are an elderly")

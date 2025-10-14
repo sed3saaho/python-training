@@ -1,0 +1,48 @@
+# ===============================
+# Python + AI Project Git Ignore
+# by Sedly Keith Okolla
+# ===============================
+
+# --- Virtual environments ---
+venv/
+.env/
+ENV/
+env/
+
+# --- Python cache and build files ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+build/
+dist/
+
+# --- Jupyter notebooks checkpoints ---
+.ipynb_checkpoints/
+
+# --- Datasets and large files ---
+datasets/
+data/
+models/
+checkpoints/
+logs/
+*.h5
+*.pkl
+*.joblib
+*.csv
+*.zip
+
+# --- System and Editor files ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Misc ---
+*.bak
+*.tmp

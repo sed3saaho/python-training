@@ -353,6 +353,31 @@ elif age < 65:
 else:
     price = 20
 print(f"Your admission cost is ${price}")
+#Usinf a series of if statements to run multiple conditions
+requested_toppings = ['mushrooms', 'extra cheese']
+
+if 'mushrooms' in requested_toppings:
+    print("Adding mushrooms.")
+if 'pepperoni' in requested_toppings:
+    print('Adding Pepperoni')
+if 'extra cheese' in requested_toppings:
+    print("Adding extra cheese.")
+print("\nFinished making pizza!")
+
+alien_color = 'green'
+if alien_color == 'green':
+    print("Congratulations!! You have earned 5 Points")
+else:
+    print("Sorry try Again!")
+#Exrecise 2
+alien_color = 'red'
+if alien_color == 'green':
+    print("Congratulations!! You have earned 5points")
+elif alien_color == "yellow":
+    print("Congratulations!! You have earned 10 points")
+elif alien_color == 'red':
+    print("Congratulations!! You earned 15 points")
+
 
 
 

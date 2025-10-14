@@ -1,6 +1,16 @@
-banned_users = ['andrew', 'carolina', 'david']
-user = ['juliet', 'jane', 'andrwe', 'david']
-if user not in banned_users:
-    print(f"{user}, you can post a response if you wish.")
+alien_color = 'green'
+if alien_color == 'green':
+    print("Congratulations!! You have earned 5 Points")
 else:
-    print(f"{user} sorry but you are banned from posting a comment")
+    print("Sorry try Again!")
+#Exrecise 2
+alien_color = 'red'
+if alien_color == 'green':
+    print("Congratulations!! You have earned 5points")
+elif alien_color == "yellow":
+    print("Congratulations!! You have earned 10 points")
+elif alien_color == 'red':
+    print("Congratulations!! You earned 15 points")
+
+
+
