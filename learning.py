@@ -1,4 +1,6 @@
 #title()method
+#Every method is followed by a set of parentheses, because methods often need additional information to do their work. That information is provided inside the parentheses. The title() function doesn’t need
+#any additional information, so its parentheses are empty. 
 name = "ada lovelace"
 print(name.title())
 #upper()method
@@ -106,7 +108,7 @@ vehicles = vehicles.upper()
 motorcycles = ['honda', 'yamaha', 'suzuki']
 motorcycles.insert(0, 'ducati')
 print(motorcycles)
-#Removing elements from a List
+#Removing elements from a Listx
 #You can remove an item according to its position in the list or according to it's value.
 #Removing an item using thhe del statemnet
 #if you know the postion of the item you want to remove from a list, you can use the del statement.
@@ -144,6 +146,7 @@ motorcycles.remove(too_expensive)
 print(motorcycles)
 print(f"\nA {too_expensive.title()} is too expensive for me.")
 #The remove method deletes only the first occurence of the value you specify.if there is a possibilty the value appears more than once in  the list, you will need to use a loop to make sure all occurences of the value are removed 
+#NOTE: Another difference between the remove() and the pop method is that the return value of the remove method is None  while the pop method returns the value that was removed from the list
 
 #ORGANIZING A LIST
 #Sorting a List Permanently with the sort() Method
@@ -165,6 +168,16 @@ print("\nHere is the sorted list:")
 print(sorted(cars))
 print("\nHere is the original list again")
 print(cars)
+#Sorting a List in Reverse Order using the sorted() Function
+motorcycles = ['honda', 'yamaha', 'ducati', 'suzuki']
+# Display the list in reverse alphabetical order
+print("Reverse alphabetical order:")
+print(sorted(motorcycles, reverse=True))
+# Show that the original list is unchanged
+print("Original list:")
+print(motorcycles)
+#NOTE: Sorting a list alphabetically is a bit more complicated when all the values are not in lowercase.
+
 #The sorted() function can also accept a reverse=True argument if you want to display a list in reverse alphabetical order
 #Printing a list in Reverse Order 
 #To reverse the original order of a list, you can use the reverse() method///
@@ -517,8 +530,8 @@ print(f"Your admission cost is ${price}")
 age = 12
 if age < 4:
  price = 0
-elif age < 18:
- price = 25
+elif age < 18:#NOTE: You should know that the if-elif-else block works in such a way that when one conditional test passes then it executes the block of code that is under that conditional test and assumes the rest of the codes   
+ price = 25  # As soon as Python finds one test that passes, it skips the rest of the tests.
 elif age < 65:
  price = 40
 elif age >= 65:
@@ -532,9 +545,9 @@ print(f"Your admission cost is ${price}.")
 #However sometimes  it's important to check all of the conditions of interest. in this case you should use a series of if statements  with no elif or else blocks. this technique makes sense when more than one condition could be True, and you want to act on every condition that is True.
 requested_toppings = ['mushrooms', 'extra cheese']
 
-if 'mushrooms' in requested_toppings:
+if 'mushrooms' in requested_toppings:# This technique makes sense when more than one conditional could be True , and you want to act on every condition that is True.
     print("Adding mushrooms.")
-if 'pepperoni' in requested_toppings:
+if 'pepperoni' in requested_toppings:# NOTE: In this kind of setup , each and every statement is executed despite the fact that the previous tests have passed... Each test is independent of the others.
     print('Adding Pepperoni')
 if 'extra cheese' in requested_toppings:
     print("Adding extra cheese.")
@@ -565,3 +578,63 @@ if age < 65:
     print("You are now an adult")
 if age >= 65:
     print("You are an elderly")
+#NOTE: where in the code the indentation matters:
+#When looping through a list using the for loop,
+#using the if statements
+#
+#Using if Statements with lists
+#You can watch for special values that need to be treated differently than other values in the list.
+requested_toppings = ['mushrooms', 'green peppers', 'extra cheese']
+for requested_topping in requested_toppings:
+    if requested_topping == 'green peppers':
+        print("Sorry, we are out of green peppers right now.")
+    else:
+        print(f"Adding {requested_topping}")
+print("\nFinished making your pizza.")
+#Similar approach using only the if statenents to enhance the accuracy of the code
+equested_toppings = ['mushrooms', 'green peppers', 'extra cheese']
+for requested_topping in requested_toppings:
+    if requested_topping == 'green peppers':
+        print("Sorry, we are out of green peppers right now.")
+    if requested_topping != 'green peppers':
+        print(f"Adding {requested_topping}")
+print("\nFinished making your pizza.")
+#Checking whether a List is not Empty:
+#NOTE: When the name of a list is used in an if statement Python returns True if the list contains at least one item; an empty list evaluates to False.
+#In the example below If the requested toppings passes the conditional test, we run the same for we used in the previous example. if the conditional test test fails, we print a message asking the customer if they really want a plain pizza with no toppings:
+requested_toppings = []
+if requested_toppings:
+    for requested_topping in requested_toppings:
+        print(f"Adding {requested_toppings}")
+    print("\nFinished making your pizza!")
+else:
+    print("Are you sure you want a Plain Pizza?")
+#Since the list is empty in this case, the output will ask the user if he really wants a plain pizza. and if the list is not empty , the output will show each requested topping being added to the pizza
+
+#Using Multiple Lists:(Page 126)
+#People will ask for just about anything, especially when it comes to pizza toppings. What if a customer actually wants french fries on their pizza? You  can
+#use lists and if statements to make sure your input makes sense before ou can act on iy.
+#In the example below the first is a list of available toppings at the pizerria, and the 2nd is a list of toppings that the user requested. This time, each item in requested_toppings is checked against the list of avilable_toppings before it's added to the pizza:
+available_toppings = ['mushrooms', 'olives', 'green peppers', 'pepperoni', 'pineapple', 'extra cheese']#NOTE: Could be a tuple if we want it to be fixed as illustrated in the 2nd example
+requsted_toppings = ['mushrooms', 'french fries', 'extra cheese']
+for requested_topping in requested_toppings:
+    if requsted_toppings in available_toppings:
+        print(f"Adding {requested_topping}.")
+        print("\nFinished making your pizza")
+    else:
+        print(f"Sorry, we don't have {requested_topping}.")
+#Similar approach for enhanced accuracy:
+#NOTE: The list of available toppings could be a tuple if the pizerria has a stable selection of toppings
+available_toppings = ['mushrooms', 'olives', 'green peppers', 'pepperoni', 'pineapple', 'extra cheese']#NOTE: Could be a Tuple
+requested_toppings = ['mushrooms', 'french fries', 'extra cheese']
+for requested_topping in requested_toppings:
+    if requested_topping in available_toppings:
+        print(f"Adding {requested_topping}.")
+    if requested_topping not in available_toppings:
+        print(f"Sorry, we don't have {requested_topping}.")
+print("\nFinished making your pizza")
+#In the next file you will start learning about Python's dictionaries. A dictionary is similat to a list, but it allows you to conncet pieces of information
+#You will learn to build dictionaries , loop through them, and use them in combination with lists and if statements.
+#Learning about dictionaries will enable you to model an even wider variety of real-word situations.
+
+
