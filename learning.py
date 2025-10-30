@@ -115,6 +115,7 @@ print(motorcycles)
 #you can remove any item from any position in a list using the del statement if you know it's index
 motorcycles = ['honda', 'yamaha', 'suzuki']
 print(motorcycles)
+#NOTE: All a del need is the list name along with the index of the value you want to delete in square brackets
 del motorcycles[0]
 print(motorcycles)
 #Removing an item using the pop() Method

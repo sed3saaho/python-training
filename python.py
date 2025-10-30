@@ -1,16 +1,22 @@
-alien_color = 'green'
-if alien_color == 'green':
-    print("Congratulations!! You have earned 5 Points")
-else:
-    print("Sorry try Again!")
-#Exrecise 2
-alien_color = 'red'
-if alien_color == 'green':
-    print("Congratulations!! You have earned 5points")
-elif alien_color == "yellow":
-    print("Congratulations!! You have earned 10 points")
-elif alien_color == 'red':
-    print("Congratulations!! You earned 15 points")
-
-
-
+favorite_language = {
+    'jen': 'python',
+    'sarah': 'c',
+    'edward': 'ruby',
+    'phil' : 'python',
+}
+friends = ['phil', 'sarah']
+for name in favorite_language.keys():
+    print(name.title())
+    
+    if name in friends:
+        language = favorite_language[name].title()
+        print(f"/t{name.title()}, I see you love{language}")
+    
+favorite_language = {
+    'jen': 'python',
+    'sarah': 'c',
+    'edward': 'ruby',
+    'phil' : 'python',
+}
+if 'erin' not in favorite_language.key():
+    print("Erin, please take our poll!")
