@@ -148,7 +148,7 @@ favorite_language = {
     'edward': 'ruby',
     'phil': 'python',
 }
-for name, language in favorite_language.item():
+for name, language in favorite_language.items():
     print(f"The favorite language of {name.title()} is {language.title()} ")
 #This type of looping would work just as well if our dictionary stored the results from polling a thousand or even a million people.
 
@@ -211,4 +211,109 @@ for name in frienzies.keys():
     if name in criminal:
         print(f"Eiiiiiiih!!! {name.title()}!!! , Criminal mwenyewe, ameamua kuendea {frienzies[name].title()} leo")
 #The keys() method isn't just for looping: it actually returns a list of all the keys,
+
+#Looping Through a Dictionary's Keys in a Particular Order:
+#Starting in Python 3.7, looping through a dictionary returns the items in the same order they were inserted. Sometimes though, you will want to loop through a dictionary in a different order
+#One way to do this is sort the keys as they are returned in the for loop. You can use the sorted() function to get a copy of the keys in order
+favorite_language = {
+    'jen': 'python',
+    'sarah': 'c',
+    'edward': 'ruby',
+    'phil': 'python',
+    }
+for name in sorted(favorite_language.keys()):
+    print(f"{name.title()}, thank you for taking the poll.")
+#The code above tells Python to list all the keys in the dictionary and sort that list before looping through it. The output shows everyone who took the poll, with the names displayed in alphabetic order.
+
+#Looping through All the Values in a Dictionary
+#If you are primarily interested in the values that a dictionary contains, you can use the values() method to return a list of values without any keys.
+favorite_language = {
+    'jen': 'python',
+    'sarah': 'c',
+    'edward': 'ruby',
+    'phil': 'python',
+    }
+print("The following languages have been mentioned:")
+for language in favorite_language.values():
+    print(language.title())
+#The for statement here pulls each value from the dictionary and assigns it to the variable 'language'. When these values are printed, we get a list of all the chosen languages:
+#This approach pulls all the values from the dictionary without checking for repeats. That might work fine with a small number of values, but in a poll with a large number of repondents,
+#, this would result in a very repetitive list.
+#To see each language chosen without repetition, we can use a set. A set is a collection in which each set must be unique
+favorite_language = {
+    'jen': 'python',
+    'sarah': 'c',
+    'edward': 'ruby',
+    'phil': 'python',
+    'violet': 'ruby',
+    }
+print("The following languages have bee mentioned, we are using a set in this example:")
+for language in set(favorite_language.values()):
+    print(language.title())
+#When you wrap set() around a list that contains duplicate items, Python identifies the unique items in the list and builds a set from those items.
+
+#NOTE: As you continue learning about Python, you will often find a built-in feature of the language that helps you do exactly what you want with your data.
+
+#You can build a set directly by using braces and separating the elements with commas:
+languages = {'python', 'ruby', 'c', 'python', 'ruby', 'javascript'}
+print(languages)
+#Using list comprehension in the example below:
+languages = {'python', 'ruby', 'c', 'python', 'ruby', 'javascript'}
+titled_languages = [lang.title() for lang in languages]
+print(sorted(titled_languages))
+#It is easy to mistake sets for dictionaries because they are both wrapped in braces. When you see braces but no key-value pairs, you are probably looking at a set. Unlike lists and dictionaries, sets do not retain items in any specific order.
+favorite_language = {
+    'jen': 'python',
+    'sarah': 'c',
+    'edward': 'ruby',
+    'phil': 'python',
+    'violet': 'ruby',
+    }
+poll_takers = ['fred', 'elina', 'jen', 'sarah', 'edward', 'phil', 'violet', 'bazenga']
+for name in poll_takers:
+    if name in favorite_language.keys():
+        print(f"Thank you {name.title()}, for your response")
+    if name not in favorite_language.keys():
+        print(f"Hello {name.title()}, am here to remind you that earlier on you were invited to take a poll on the language you love")
+#Nesting
+#Sometimes you will want to store multiple dictionaries in a list, or a list of items as a value in a ditionary. This is called nesting.
+#You can nest dictionaries inside a list, a list of items inside a dictionary, or even a dictionary inside another dictionary.Nesting is a powerful feature as the following examples will demonstrate.
+#  1. A List of Dictionaries
+#The alien_0 dictionary contains a variety of information about one alien, but it has no room to store information about a second alien, much less a screen full of aliens.
+#How can you manage a fleet aliens? One way is to make a list of aliens in which each alien is a dictionary of information about that alien. as shown below
+alien_0 = {'color': 'green', 'points': 5}
+alien_1 = {'color': 'yellow', 'points': 10}
+alien_2 = {'color': 'red', 'points': 15}
+aliens = [alien_0, alien_1, alien_2]
+for alien in aliens:#Finally we loop through the list and print out each alien
+    print(alien)
+#A more realistic example would involve more than three aliens with code that automatically generates each alien. In the following example we use range() to create a fleet of 30 aliens:
+#we start by making an empty list for storing aliens.
+aliens = []
+#Make 30 green aliens.
+for alien_number in range(30):
+    new_alien = {'color': 'green', 'points': 5, 'speed': 'slow'}
+    aliens.append(new_alien)
+#Show the first 5 aliens.
+for alien in aliens[:5]:
+    print(alien)
+print("......")
+#Show how many aliens have been created.
+print(f"Total number of aliens: {len(aliens)}") 
+#These aliens all have the same characteristics, but Python considers each one a separate object, which allows us to modify each alien individually.
+#Imagine that one aspect of a game has some aliens changing color and moving faster as the game progresses. When it's time to change colors, we can use a for loop and an if statement to change the color of aliens.
+#For example, to change the first three aliens to yellow, medium-speed aliens worth 10 points each, we could do this:
+aliens = []
+for alien_number in range(30):#We don't actually use the alien_number inside the loop here, it's just helping us repeat the same action 30 times.
+    new_alien = {'color': 'green', 'points': 5, 'speed': 'slow'}
+    aliens.append(new_alien)
+for alien in aliens[:3]:
+    if alien['color'] == 'green':
+        alien['color'] = 'yellow'
+        alien['speed'] = 'medium'
+        alien['points'] = 10
+#Show the first 5 aliens.
+for alien in aliens[:5]:
+    print(alien)
+print("...")
 

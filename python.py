@@ -1,22 +1,13 @@
-favorite_language = {
-    'jen': 'python',
-    'sarah': 'c',
-    'edward': 'ruby',
-    'phil' : 'python',
-}
-friends = ['phil', 'sarah']
-for name in favorite_language.keys():
-    print(name.title())
-    
-    if name in friends:
-        language = favorite_language[name].title()
-        print(f"/t{name.title()}, I see you love{language}")
-    
-favorite_language = {
-    'jen': 'python',
-    'sarah': 'c',
-    'edward': 'ruby',
-    'phil' : 'python',
-}
-if 'erin' not in favorite_language.key():
-    print("Erin, please take our poll!")
+aliens = []
+for alien_number in range(30):
+    new_alien = {'color': 'green', 'points': 5, 'speed': 'slow'}
+    aliens.append(new_alien)
+for alien in aliens[:3]:
+    if alien['color'] == 'green':
+        alien['color'] = 'yellow'
+        alien['speed'] = 'medium'
+        alien['points'] = 10
+#Show the first 5 aliens.
+for alien in aliens[:5]:
+    print(alien)
+print("...")

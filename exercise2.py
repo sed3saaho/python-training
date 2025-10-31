@@ -144,3 +144,110 @@ for name in frienzies.keys():
         print(f"{name.title()}, nayo tunasemanga ni wale wa kanisa , {frienzies[name].title()} si mbaya sanaa")
     if name in criminal:
         print(f"Eiiiiiiih!!! {name.title()}!!! , Criminal mwenyewe, ameamua kuendea {frienzies[name].title()} leo")
+
+#Sorting the keys in a dictionary using the sorted function
+favorite_langauge = {
+    'jen': 'python',
+    'sarah': 'c',
+    'edward': 'ruby',
+    'phil': 'python',
+    }
+for name in sorted(favorite_language.key()):
+    print(f"{name.title()}, thank you for taking the poll.")
+#Looping through All the Values in a Dictionary
+favorite_language = {
+    'jen': 'python',
+    'sarah': 'c',
+    'edward': 'ruby',
+    'phil': 'python',
+    }
+print("The following languages have been mentioned:")
+for language in favorite_language.values():
+    print(language.title())
+#Using a set in the following example below:
+favorite_language = {
+    'jen': 'python',
+    'sarah': 'c',
+    'edward': 'ruby',
+    'phil': 'python',
+    'violet': 'ruby',
+    }
+print("The following languages have bee mentioned, we are using a set in this example:")
+for language in set(favorite_language.values()):
+    print(language.title())
+#Defining a Set:
+languages = {'python', 'ruby', 'c', 'python', 'ruby', 'javascript'}
+print(languages)
+#Using list comprehension in the example below:
+languages = {'python', 'ruby', 'c', 'python', 'ruby', 'javascript'}
+titled_languages = [lang.title() for lang in languages]
+print(sorted(titled_languages))
+
+#Exercises:
+rivers = {
+    'yala': 'kenya',
+    'nile': 'egypt',
+    'amazon': 'brazil',
+    'niger': 'nigeria',
+    'orange': 'south africa',
+    }
+for river in rivers.keys():
+    print(f"The River {river} runs trough {rivers[river]}")
+#Similar approach
+rivers = {
+    'yala': 'kenya',
+    'nile': 'egypt',
+    'amazon': 'brazil',
+    'niger': 'nigeria',
+    'orange': 'south africa',
+    }
+for river, country in rivers.items():
+    print(f"The River {river} runs through {country}")
+
+rivers = {
+    'yala': 'kenya',
+    'nile': 'egypt',
+    'amazon': 'brazil',
+    'niger': 'nigeria',
+    'orange': 'south africa',
+    }
+for river in rivers.keys():
+    print(river.title())
+
+rivers = {
+    'yala': 'kenya',
+    'nile': 'egypt',
+    'amazon': 'brazil',
+    'niger': 'nigeria',
+    'orange': 'south africa',
+    }
+for river in rivers.keys():
+    print(rivers[river].title())
+#Exercise 3(page  143)
+favorite_language = {
+    'jen': 'python',
+    'sarah': 'c',
+    'edward': 'ruby',
+    'phil': 'python',
+    'violet': 'ruby',
+    }
+poll_takers = ['fred', 'elina', 'jen', 'sarah', 'edward', 'phil', 'violet', 'bazenga']
+for name in poll_takers:
+    if name in favorite_language.keys():
+        print(f"Thank you {name.title()}, for your response")
+    if name not in favorite_language.keys():
+        print(f"Hello {name.title()}, am here to remind you that earlier on you were invited to take a poll on the language you love")
+#Nesting Dictionaries
+aliens = []
+for alien_number in range(30):
+    new_alien = {'color': 'green', 'points': 5, 'speed': 'slow'}
+    aliens.append(new_alien)
+for alien in aliens[:3]:
+    if alien['color'] == 'green':
+        alien['color'] = 'yellow'
+        alien['speed'] = 'medium'
+        alien['points'] = 10
+#Show the first 5 aliens.
+for alien in aliens[:5]:
+    print(alien)
+print("...")
