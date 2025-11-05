@@ -91,7 +91,7 @@ favorite_language = {
     'edward': 'ruby',
     'phil': 'python',
 }
-for name, language in favorite_language.item():
+for name, language in favorite_language.items():
     print(f"The favorite language of {name.title()} is {language.title()} ")
 #The keys() method
 favorite_language = {
@@ -123,7 +123,7 @@ favorite_language = {
     'edward': 'ruby',
     'phil' : 'python',
 }
-if 'erin' not in favorite_language.key():
+if 'erin' not in favorite_language.keys():
     print("Erin, please take our poll!")
 
 frienzies = {
@@ -152,7 +152,7 @@ favorite_langauge = {
     'edward': 'ruby',
     'phil': 'python',
     }
-for name in sorted(favorite_language.key()):
+for name in sorted(favorite_language.keys ()):
     print(f"{name.title()}, thank you for taking the poll.")
 #Looping through All the Values in a Dictionary
 favorite_language = {
@@ -251,3 +251,191 @@ for alien in aliens[:3]:
 for alien in aliens[:5]:
     print(alien)
 print("...")
+#Nesting lists inside a Dictionary
+pizza = {
+    'crust': 'thick',
+    'toppings': ['mushrooms', 'extra cheese'],
+}
+print(f"You ordered a {pizza['crust']}-crust pizza "
+      "with the following toppings:")
+for topping in pizza['toppings']:
+    print("\t" + topping)
+
+
+favorite_languages = {
+    'jen': ['python', 'ruby'],
+    'sarah': ['c'],
+    'edward': ['ruby', 'go'],
+    'phil': ['python', 'haskell'],
+    }
+for name, languages in favorite_languages.items():
+    print(f"/n{name.title()}'s favorite languages are:")
+    for language in languages:
+        print(f"\t{language.title()}")
+#Different and more accurate approach:
+favorite_languages = {
+    'jen': ['python', 'ruby'],
+    'sarah': ['c'],
+    'edward': ['ruby', 'go'],
+    'phil': ['python', 'haskell'],
+    'Fred': ['javascript'],
+    }
+for name, languages in favorite_languages.items():
+    if len(languages) > 1:
+        print(f"\n{name.title()}'s favvorite languages are:")
+        for language in languages:
+            print(f"\t{language.title()}")
+    else:
+        print(f"\n{name.title()}'s favorite langauge is :")
+        for language in languages:
+            print(f"\t{language.title()}")
+#Nesting a Dictionarie in a dictionary 
+users = {
+    'aeinstein': {
+        'firstname': 'albert',
+        'lastname': 'einstein',
+        'location': 'princeton',
+    },
+    'murcie': {
+        'firstname': 'marie',
+        'lastname': 'curie',
+        'location': 'paris',
+    },
+    'violet': {
+        'firstname': 'adhiambo',
+        'lastname': 'akeyo',
+        'location': 'bondo',
+    },
+}
+for username, user_info in users.items():
+    print(f"\n Username: {username}")
+    full_name = f"{user_info['firstname']} {user_info['lastname']}"
+    location = user_info['location']
+
+    print(f"\t Full name: {full_name.title()}")
+    print(f"\t Location: {location.title()}")
+
+#Exercise 1 page(150)
+person_1 = {
+    'name': 'sedly keith',
+    'age': 26,
+    'nickname': 'saaho',
+    'hobby': 'bodybuilding',
+}
+person_2 = {
+    'name': 'loise mwende',
+    'age': 23,
+    'nickname': 'miss saaho',
+    'hobby': 'roll ball',
+}
+person_3 = {
+    'name': 'elina yvett',
+    'age': 23,
+    'nickname': 'dongonyado',
+    'hobby': 'watching',
+}
+people = [person_1, person_2, person_3]
+for person in people:
+    name = person['name']
+    age = person['age']
+    nickname = person['nickname']
+    hobby = person['hobby']
+    print(f"\n{name.title()}'s details are:")
+    print(f"\tAge: {age}")
+    print(f"\tNickname: {nickname.title()}")
+    print(f"\tHobby: {hobby.title()}")
+#Exercise 2
+pet_1 = {
+    'owner name': 'sedly keith',
+    'pet name': 'ruma',
+    'animal kind': 'dog',
+    'pet age': '5 years',
+}
+pet_2 = {
+    'owner name': 'loise mwende',
+    'pet name': 'cutie',
+    'animal kind': 'cat',
+    'pet age': '2 years',
+}
+pet_3 = {
+    'owner name': 'elina yvett',
+    'pet name': 'greace',
+    'animal kind': 'chiwawa',
+    'pet age': '3 years',
+}
+pets = [pet_1, pet_2, pet_3]
+for pet in pets:
+    pet_name = pet['pet name']
+    pet_owner = pet['owner name']
+    animal_kind = pet['animal kind']
+    pet_age = pet['pet age']
+    print(f"\nThe following are the details of {pet_name.title()}")
+    print(f"\t The Owner of the pet is {pet_owner.title()} ")
+    print(f"\tThe kind of animal {pet_name.title()} is, is a {animal_kind.title()}")
+    print(f"\tAnd the age of {pet_name.title()} is {pet_age} old")
+#Exercise 3
+favorite_places = {
+    'fred': ['nairobi', 'homabay', 'siaya', 'kericho', 'naivasha'],
+    'violet': ['gwasi', 'bondo', 'suna'],
+    'lydia': ['kisumu', 'akala', 'ugunja', 'nakuru']
+}
+for name, places in favorite_places.items():
+    print(f"{name.title()}'s favorite places are:")
+    for place in places:
+        print(f"\t{place.title()}")
+#Exercise 4
+favorite_numbers= {
+    'fred': [2,4,6,8,10],
+    'violet': [1,3,5,7,9],
+    'lydia': [12,14,16,18,20],
+    'elina': [21,33,25,47,59],
+}
+for name, numbers in favorite_numbers.items():
+    print(f"{name.title()}'s favorite numbers are: {numbers}")
+
+#Exercise 5
+cities = {
+    'tokyo': {
+        'country': 'japan',
+        'population': 13_960_000,
+        'language': 'japanese',
+        'famouse landmark': 'tokyo tower',
+        'currency': 'Japanese Yen (JPY)',
+        'fact': 'Tokyo is the most populous metropolitan area in the world, with over 37 million people living in its greater region.',
+    },
+    'paris': {
+        'country': 'france',
+        'population': 2_160_000,
+        'language': 'french',
+        'famouse landmark': 'eiffel tower',
+        'currency': 'Euro(EUR)',
+        'fact': 'The Eiffel Tower was originally meant to be a temporary structure for the 1889 Worlds Fair — it was almost torn down afterward!',
+
+    },
+    'nairobi': {
+        'country': 'kenya',
+        'population': 4_400_000,
+        'language': 'swahili and english',
+        'famouse landmark': 'nairobi national park',
+        'currency': 'Kenyan Shilling (KES)',
+        'fact': 'The city s iconic Times Square was named after The New York Times newspaper in 1904.'
+
+    },
+}
+for city, city_info in cities.items():
+    print(f"\nBelow are the details of {city.upper()}, City")
+    country = city_info['country']
+    population = city_info['population']
+    language = city_info['language']
+    famouse_landmark = city_info['famouse landmark']
+    currency = city_info['currency']
+    fact = city_info['fact']
+    print(f"\tIts a city in {country.title()}")
+    print(f"\tThe population in this {city.title()} is roughly {population}")
+    print(f"\tThe popular language in {city.title()} is {language.title()}")
+    print(f"\tThe famouse landmark in {city.title()} is {famouse_landmark.title()}")
+    print(f"\tThe currency used is {currency}")
+    print(f"\tAnd a common fact about {city.title()} is: {fact}")
+
+
+
