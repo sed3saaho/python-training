@@ -357,9 +357,9 @@ for name, languages in favorite_languages.items():
     for language in languages:
         print(f"\t{language.title()}")
 #When we loop through the dictionary, we use the variable name languages to hold each value from the dictionary, because we know that each value will be a list.
-#Inside the main dictinary loop, we use another for loop to run through each person's list of favorite languages. Now each person can lsit as  many favorite languages as they like.
+#Inside the main dictionary loop, we use another for loop to run through each person's list of favorite languages. Now each person can list as  many favorite languages as they like.
 #To refine this program even further, you could include an if statement at the begining of the dictionary's for loop to see whether each person has more than one favorte language by examining the value of len(languages). if a person has more than one favorite language, the output would stay the same.
-#..... if a person has only one faorite language, you could change the wording to reflect that. For example, you could say Sarah's favorite language is C
+#..... if a person has only one favorite language, you could change the wording to reflect that. For example, you could say Sarah's favorite language is C
 favorite_languages = {
     'jen': ['python', 'ruby'],
     'sarah': ['c'],
