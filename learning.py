@@ -108,6 +108,32 @@ vehicles = vehicles.upper()
 motorcycles = ['honda', 'yamaha', 'suzuki']
 motorcycles.insert(0, 'ducati')
 print(motorcycles)
+
+#NOTE: Other methods that can be used in adding items to a List
+###NOTE: extend() method........ used to add multilple elements: Adds all elements from another iterable.
+numbers = [1,2,3]
+print(numbers)
+numbers.extend([4,5,6])
+print(numbers)
+
+##NOTE: Using the += (Augmented assignment) adds elements from another iterable to the list
+numbers = [1,2,3]
+print(numbers)
+numbers += [4,5]
+print(numbers)
+
+#NOTE: Using the List concatenation using the + ;creates a new list by combining two or more lists.
+list1 = [1,2]
+list2 = [3,4]
+list3 = [7,8]
+new_list = list1 + list2 + list3
+print(new_list)
+
+#NOTE: Using the Slice assignment: Insert multiple elements at a specific position
+numbers = [1,2,5]
+numbers[2:2] = [3,4]
+print(numbers)
+
 #Removing elements from a Listx
 #You can remove an item according to its position in the list or according to it's value.
 #Removing an item using thhe del statemnet

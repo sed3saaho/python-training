@@ -54,6 +54,30 @@ print(vehicles)
 motorcycles = ['honda', 'yamaha', 'suzuki']
 motorcycles.insert(0, 'ducati')
 print(motorcycles)
+
+#Using the extend() method
+numbers = [1,2,3]
+print(numbers)
+numbers.extend([4,5,6])
+print(numbers)
+
+#Using the += (Augmented assignment)
+numbers = [1,2,3]
+print(numbers)
+numbers += [4,5]
+print(numbers)
+
+#Using the List concatenation method using + ; creates a new list by combining two or more lists
+list1 = [1,2]
+list2 = [3,4]
+new_list = list1 + list2
+print(new_list)
+
+#NOTE: Using the Slice assignment: Insert multiple elements at a specific position
+numbers = [1,2,5]
+numbers[2:2] = [3,4]
+print(numbers)
+
 #Removing an item from a list using the del statemnet
 motorcycles = ['honda', 'yamaha', 'suzuki']
 print(motorcycles)
@@ -357,7 +381,7 @@ print(f"Your admission cost is ${price}")
 requested_toppings = ['mushrooms', 'extra cheese']
 
 if 'mushrooms' in requested_toppings:
-    print("Adding mushrooms.")
+    print("Adding mushrooms.")                                #NOTE: Page ( 121 ) You need to know the difference between using if-elif-else chain and a series of if statements. In an if-elif-else chain, once a condition is met, the rest of the conditions are not checked. In a series of if statements, each condition is checked independently.
 if 'pepperoni' in requested_toppings:
     print('Adding Pepperoni')
 if 'extra cheese' in requested_toppings:

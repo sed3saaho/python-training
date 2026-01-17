@@ -439,3 +439,85 @@ for city, city_info in cities.items():
 
 
 
+#Additional points to note while working with Dictionaries
+#NOTE: Using the update() method to Add one or multiple key-value pairs; You can add pairs from another dictionary or from an iterable of key-value pairs.
+person = {'name': 'Alice'}
+print(person)
+person.update({'age': 20, 'city': 'paris'})
+print(person )
+
+#NOTE: setdefault() ; Add a key only if it doesn't  exist
+person = {'name': 'Alice'}
+print(person)
+person.setdefault('age', 20)
+print(person)
+person.setdefault('name', 'Bob')#Wont change existing value
+print(person)
+
+#NOTE: Dictionary unpacking(**) ; Creates a dictionary by merging dictionaries
+dict1 = {'a':1 , 'b': 3}
+print(dict1)
+dict2 = {'ogago': 4 , 'nyonds': 43}
+print(dict2)
+new_dict = {**dict1, **dict2}
+print(new_dict)
+
+#Pop method ; Remove a key and return it's vale
+person = {'name': 'Alice', 'age': 20, 'city': 'Paris'}
+print(person)
+age = person.pop('age')
+print(age)
+print(person)
+
+ 
+#popitem() Remove and return the last inserted key-value pair; Removes the most recently added item
+person = {'name': 'Alice', 'age': 20, 'city': 'Paris'}
+print(person)
+item = person.popitem()
+print(item)
+print(person)
+
+
+#clear() Remove all items; Empties the dictionary completely.
+person = {'name': 'Alice', 'age': 20, 'city': 'Paris'}
+print(person)
+person.clear()
+print(person)
+
+#Dictionary comprehension (create a new dictionary) Removes items by condition while creating a new dictionary.
+#NOTE: This does not modify the original dictionary
+person = {'name': 'Alice', 'age': 20, 'city': 'Paris'}
+filtered_person = {k : v for k, v in person.items() if k != 'age'}
+print(filtered_person)
+
+
+
+#Additional practise:
+aliens = []
+for alien_number in range(30):
+    new_alien = {'color': 'green', 'speed': 'slow', 'points':5}
+    aliens.append(new_alien)
+print(len(aliens))
+for alien in aliens[:3]:
+    if alien['color'] == 'green':
+        alien['color'] = 'yellow'
+        alien['speed'] = 'medium'
+        alien['points'] = 10
+    
+print(aliens[:5])
+for alien2 in aliens[:5]:
+    if alien2['color'] == 'green':
+        alien2['color'] = 'yellow'
+        alien2['speed'] = 'medium'
+        alien2['points'] = 10
+    elif alien2['color'] == 'yellow':
+        alien2['color'] = 'red'
+        alien2['speed'] = 'fast'
+        alien2['points'] = 15
+for final_alien in aliens:
+    print(final_alien)
+    
+
+
+
+

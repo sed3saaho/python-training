@@ -58,6 +58,28 @@ person_2['Hobby'] = 'Skating'
 person_2['Husband'] = 'Sedly Keith Okolla'
 print(person_2)
 
+#NOTE: Using the update() method to Add one or multiple key-value pairs; You can add pairs from another dictionary or from an iterable of key-value pairs.
+person = {'name': 'Alice'}
+print(person)
+person.update({'age': 20, 'city': 'paris'})
+print(person )
+
+#NOTE: setdefault() ; Add a key only if it doesn't  exist
+person = {'name': 'Alice'}
+print(person)
+person.setdefault('age', 20)
+print(person)
+person.setdefault('name', 'Bob')#Wont change existing value
+print(person)
+
+#NOTE: Dictionary unpacking(**) ; Creates a dictionary by merging dictionaries
+dict1 = {'a':1 , 'b': 3}
+print(dict1)
+dict2 = {'ogago': 4 , 'nyonds': 43}
+print(dict2)
+new_dict = {**dict1, **dict2}
+print(new_dict)
+
 #Modifying Values in a Dictionary
 #To modify a value in a dictionary, give the name of the dictionary with the key in square brackets and then the new value you want associated with that key.
 #Example: Consider a Value that changes from green to yellow as a game progresses
@@ -94,6 +116,32 @@ alien_0 = {'color': 'green', 'points': 5}
 print(alien_0)
 del alien_0['points']
 print(alien_0)
+
+#pop() method ; Remove a key and return it's vale
+person = {'name': 'Alice', 'age': 20, 'city': 'Paris'}
+print(person)
+age = person.pop('age')
+print(age)
+print(person)
+ 
+#popitem() Remove and return the last inserted key-value pair; Removes the most recently added item
+person = {'name': 'Alice', 'age': 20, 'city': 'Paris'}
+print(person)
+item = person.popitem()
+print(item)
+print(person)
+
+#clear() Remove all items; Empties the dictionary completely.
+person = {'name': 'Alice', 'age': 20, 'city': 'Paris'}
+print(person)
+person.clear()
+print(person)
+
+#Dictionary comprehension (create a new dictionary) Removes items by condition while creating a new dictionary.
+#NOTE: This does not modify the original dictionary
+person = {'name': 'Alice', 'age': 20, 'city': 'Paris'}
+filtered_person = {k : v for k, v in person.items() if k != 'age'}
+print(filtered_person)
 
 #A Dictionary of Similar Objects
 #The previous example involved storing different kinds of information about one object, an alien in a game for example. You can also use a dictionary to store one kind of information
