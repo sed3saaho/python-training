@@ -4,7 +4,7 @@ def greet_user():
 
 greet_user()
 #learning more about docstrings
-print(greet_user._doc_)#accessing the docstring at runtime
+print(greet_user.__doc__)#accessing the docstring at runtime
 help(greet_user)#using the help fuction to generate the documentation of a given function from the docstring
 
 #Passing Information to a function
@@ -74,3 +74,20 @@ musician = get_formatted_name('jimi', 'hendrix')
 print(f"\n\tOur musician of the day is {musician}")
 player = get_formatted_name('bonface', 'otieno', 'ondieki')
 print(f"\n\tThe only Fisi here is {player}!!!")
+
+#Returning a Dictionary
+def build_person(first_name, last_name):
+    """Return a dictionary of information about a person."""
+    person = {'first': first_name, 'last': last_name}# in our dictionary the value of first_name is stored in the key 'first' and the value of last_name is stored in the key 'last'
+    return person
+musician = build_person('jimi' ,'hendrix')
+print(musician)
+
+def build_person(first_name, last_name, age=None):
+    """Return a dictionary of information about a person."""
+    person = {'first': first_name, 'last': last_name}
+    if age:
+        person['age'] = age
+    return person
+musician = build_person('jimi','hendrix', age=27)
+print(musician)

@@ -10,7 +10,7 @@ def greet_user():#we use the keyword def to tell Python that we are defining a f
 
 greet_user()#When you want to use a fucntion you call it.To call a fucntion you write the name of the function followed by any necessary information in Parentheses. and because no information is needed here, calling our function is as simple as entering greet_user() and as expected, it prints Hello!
 #Learning more about docstrings
-print(greet_user._doc_)#accessing the docstring at runtime
+print(greet_user.__doc__)#accessing the docstring at runtime
 help(greet_user)#using the help fuction to generate the documentation of a given function from the docstring
 
 
@@ -20,7 +20,7 @@ help(greet_user)#using the help fuction to generate the documentation of a given
 #.........The function will now expect you to provide a value for username eac time you call it. When you call greet_user(), you can pass it a name, such as 'jesse' inside the parantheses:
 def greet_user(username):
     """Display a simple greeting"""
-    print(f"Hello, {username.title()}!!")
+    print(f"Hello, {username.title()}!!") 
 
 greet_user('jesse')#This Calls greet_user(username) function and gives the function the information it needs to execute the print() call
 greet_user('elina')
@@ -113,3 +113,21 @@ print(f"\n\tThe only Fisi here is {player}!!!")
 #In this example, the name is built from three possible parts. Because there’s always a first and last name, these parameters are listed first in the function’s definition. The middle name is optional, so it’s listed last in the definition, and its default value is an empty string
 #NOTE: NOTE: NOTE: Calling this function with a first and last name is straightforward. If we’re using a middle name, however, we have to make sure the middle name is the last argument passed so Python will match up the positional arguments correctly .
 #Optional values allow functions to handle a wide  range of use cases while letting functions calls remain as simple as possible.
+
+#Returning a Dictionary
+#A function can return any kind of value you need it to, including more complicated data structures like lists and dictionaries. For example, the following function takes in parts of a name and returns a dictionary representing a person:
+def build_person(first_name, last_name):
+    """Return a dictionary of information about a person."""
+    person = {'first': first_name, 'last': last_name}# in our dictionary the value of first_name is stored in the key 'first' and the value of last_name is stored in the key 'last'
+    return person#we return the entire dictionary as the return value of our function def build_person()
+musician = build_person('jimi' ,'hendrix')
+print(musician)
+
+def build_person(first_name, last_name, age=None):#We add a new optional parameter age to the function definition and assign the parameter the special value None, which is used when a variable has no specific value assigned to it. You can think of None as a placeholder value. In conditional tests, None evaluates to False.
+    """Return a dictionary of information about a person."""
+    person = {'first': first_name, 'last': last_name}
+    if age:
+        person['age'] = age
+    return person
+musician = build_person('jimi','hendrix', age=27)#If the function call includes a value for age, that value is stored in the dictionary. This function always stores a person’s name, but it can also be modified to store any other information you want about a person.
+print(musician)
