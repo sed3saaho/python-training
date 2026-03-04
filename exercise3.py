@@ -163,6 +163,22 @@ print("\n------ Poll Results -------")
 for name, response in responses.items():
     print(f"{name} would like to climb {response}.")
 
+
+#More cool examples 
+prompt = "\nPlease enter the name of a city you have visited:"
+prompt += "\n(Enter 'quit' when you are finished.) "
+while True:
+    city = input(prompt)
+    if city == 'quit':
+        prompt2 = "Are you sure you want to quit: "
+        response = input(prompt2)
+        if response == 'yes':
+            print("You are quitting the game Goodbye!!!")
+            break
+        
+    else:
+        print(f"I'd love to go to {city.title()}!")
+
     
 
     
