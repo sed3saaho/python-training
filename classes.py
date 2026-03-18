@@ -93,9 +93,10 @@ class Car:
     def get_descriptive_name(self):#This method puts a car's year, make, and model into one string neatly describing the car.
         """Return a neatly formatted descriptive name."""
         long_name = f"{self.car_year} {self.car_make} {self.car_model}"#To work with the attribute values in this method, we use self.car_make, self.car_model, and self.car_year
-        return long_name.title()
+        return long_name.title()#NOTE: NOTE: Since you are returning  a value, you will have to print the function hen you will be calling it later on
 
 my_new_car = Car('audi', 'a4', 2019)#We make an instance from the Car class and assign it to the variable my_new_car.
+#NOTE:NOTE: Since get_desriptive_name() RETURNS  a value you must PRINT the call:
 print(my_new_car.get_descriptive_name())#Then we call get_descriptive_name() to show what kind of car we have.
 
 #NOTE: To make a class more interesting , let's add an attribute that changes over time. We will add an attribute that stores the car's overall mileage.

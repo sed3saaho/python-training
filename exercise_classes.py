@@ -171,4 +171,107 @@ my_used_car.read_odometer()
 my_used_car.increment_odometer(100)
 my_used_car.read_odometer()
 
+#Exercises...
+class Restaurant:
+    """Modelling an example of a Restaurant"""
+    def __init__(self, name, type):
+        """Initialize attributes to make a Restaurant"""
+        self.restaurant_name = name
+        self.cuisine_type = type
+    def describe_restaurant(self):
+        """Printing the two pieces of information of the restaurnat"""
+        restaurant_details = f" The Reasturant name is {self.restaurant_name.title()} and cuisine type is {self.cuisine_type.title()}"
+        return restaurant_details
+    def open_restaurant(self, status):
+        """Show whether the restaurant is open or closed"""
+        if status == 'open':
+            print("The restaurant is opened")
+        elif status == 'close':
+            print("The restaurant is closed")
+restaurant_from_class = Restaurant('fogo gaucho', 'brazilian')
+print(f"{restaurant_from_class.restaurant_name.title()}")
+print(f"{restaurant_from_class.cuisine_type.title()}")
+# NOTE:Since describe_restaurant() now RETURNS a value, you must PRINT the call:
+print(restaurant_from_class.describe_restaurant())
+restaurant_from_class.open_restaurant('open')
+
+restaurant_1 = Restaurant('carnovire', 'italian')
+print(restaurant_1.describe_restaurant())
+restaurant_2 = Restaurant('massai mara', 'massai')
+print(restaurant_2.describe_restaurant())
+
+
+class User:
+    """Modelling a class to represent a user"""
+    def __init__(self, name1, name2):
+        """Initialize attributes for the user"""
+        self.first_name = name1
+        self.last_name = name2
+        self.age = 1
+        self.gender = 'male'
+    def describe_user(self, gender, age):
+        """Print summary of the user's information"""
+        self.gender = gender
+        self.age = age
+        print(f"First Name: {self.first_name.title()}")
+        print(f"Last_name: {self.last_name.title()}")
+        print(f"Gender {self.gender.title()}")
+        print(f"Age: {self.age}")
+    def greet_user(self):
+        """Print a personalized greeting to the user"""
+        print(f"Hello {self.first_name.title()} {self.last_name.title()}!!!")
+
+user_1 = User('stephen', 'otieno')
+user_1.describe_user('male', 23)
+user_1.greet_user()
+
+user_2 = User('bradly', 'omondi')
+user_2.describe_user('male', 15)
+user_2.greet_user()
+
+user_3 = User('stephanie', 'ochieng')
+user_3.describe_user('female', 27)
+user_3.greet_user()
+
+#Revised versionof the User class
+class User:
+    """Modelling a class to represent a user"""
+    
+    def __init__(self, first, last, age, gender):
+        """Initialize attributes for the user immediately"""
+        self.first_name = first
+        self.last_name = last
+        self.age = age
+        self.gender = gender
+
+    def describe_user(self):
+        """Print summary of the user's information"""
+        print(f"\nUser Profile:")
+        print(f"Name: {self.first_name.title()} {self.last_name.title()}")
+        print(f"Gender: {self.gender.title()}")
+        print(f"Age: {self.age}")
+
+    def greet_user(self):
+        """Print a personalized greeting"""
+        print(f"Hello, {self.first_name.title()}! Welcome back.")
+
+# Creating instances with all data upfront
+user_1 = User('stephen', 'otieno', 23, 'male')
+user_2 = User('bradly', 'omondi', 15, 'male')
+user_3 = User('stephanie', 'ochieng', 27, 'female')
+
+# Calling methods
+user_1.describe_user()
+user_1.greet_user()
+
+user_2.describe_user()
+user_2.greet_user()
+
+user_3.describe_user()
+user_3.greet_user()
+    
+    
+    
+
+
 
