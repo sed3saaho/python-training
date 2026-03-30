@@ -1,32 +1,53 @@
-def make_pizza(size, *toppings):
-    """Summarize the pizza we are about to make"""
-    print(f"\nMaking a {size}-inch pizza with the following toppings:")
-    for topping in toppings:
-        print(f"- {topping}")
-make_pizza(16, 'pepperoni')
-make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+class Car:
+    """A simple attempt to represent a car."""
+    def __init__(self, make, model, year):
+        """Initialize attributes to describe a car."""
+        self.car_make = make
+        self.car_model = model
+        self.car_year = year
+        self.odometer_reading = 0
+    def get_descriptive_name(self):
+         """Return a neatly formatted descriptive name."""
+         long_name = f"{self.car_year} {self.car_make} {self.car_model}"
+         return long_name.title()
+    def read_odometer(self):
+        """Print a statement showing the car's mileage"""
+        print(f"This car has {self.odometer_reading} miles on it.")
+    def update_odometer(self, mileage):
+        """Set the odometer reading to the given Value. Reject the change if it attempts to roll the odometer back."""
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+            print("You can't roll back an odometer!")
+    def increment_odometer(self, miles):
+        """Add the given amount to the odometer reading"""
+        if miles > 0:
+            self.odometer_reading += miles
+        else:
+            print("You can't inclde a negative value")
 
-class Dog:
-    """A simple attemot to model a Dog"""
-    def __init__(self, name, age):
-        """Initalize name and age attributes"""
-        self.dog_name = name
-        self.dog_age = age
-    def sit(self):
-        """Simulate a dog sitting in response to a command"""
-        print(f"{self.dog_name} is now sitting")
-    def roll_over(self):
-        """Simulate a dog rolling over in response to a command"""
-        print(f"{self.dog_name} is rolling over")
-my_dog = Dog('Willie', 6)
-your_dog = Dog('Lucy', 3)
+class ElectricCar(Car):
+    """Represent aspects of a car, specific to electric vehicles."""
+    def __init__(self, make, model, year):
+        """Initialize attributes of the parent class."""
+        super().__init__(make, model, year)
 
-print(f"My dog's name is {my_dog.dog_name}.")
-print(f"My dog is {my_dog.dog_age} years old")
-my_dog.sit()
-my_dog.roll_over()
+my_tesla = ElectricCar('tesla', 'model s', 2019)
+print(my_tesla.get_descriptive_name())
 
-print(f"\nYour dog's name is {your_dog.dog_name}.")
-print(f"You dog is {your_dog.dog_age} years old.")
-your_dog.sit()
-your_dog.roll_over()
+class ElectricCar(Car):
+    """Represent aspects of a car, specific to electric vehicles."""
+    def __init__(self, make, model, year):
+        """Initialize attributes of the Parent class.
+        Then initialize attributes specific to an electric car."""
+        super().__init__(make, model, year)
+        self.battery_size = 75
+    
+    def describe_battery(self):
+        """Print a statement describing the battery size."""
+        print(f"This car has a {self.battery_size}-kWh battery.")
+my_tesla = ElectricCar('tesla', 'model s', 2019)
+print(my_tesla.get_descriptive_name())
+my_tesla.describe_battery()
+
+
