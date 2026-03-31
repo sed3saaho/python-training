@@ -283,7 +283,7 @@ class ElectricCar(Car):
     def __init__(self, make, model, year):
         """Initialize attributes of the Parent class.
         Then initialize attributes specific to an electric car."""
-        super().__init__(make, model, year)
+        super().__init__(make, model, year)##NOTE:NOTE: Notice that when calling super().__init__(), you do not include self in the parentheses. Python handles self automatically when you use super().
         self.battery_size = 75 #NOTE: We add a new attribute self.battery_size and set it's initial value to say, 75. This attribute will be associated with all the instances created from the ElectricCar class but won't be associated with any instance of Car.
     
     def describe_battery(self):#We also add a method called describe_battery() that prints information about the battery. When we call this method, we get the description that is clearly specific to an electric Car:
@@ -317,3 +317,99 @@ class ElectricCar(Car):
 my_tesla = ElectricCar('tesla', 'model s', 2019)
 #Now if someone tries to call fill_gas_tank() with an electric car, Python will ignore the method fill_gas_tank() in Car and run this code instead. When you use inheritance, you can make your child classes retain what you need
 #.....and override anything you don’t need from the parent class.
+
+#Intsances as Attributes
+#When modeling something from the real world in code, you may find that you’re adding more and more detail to a class. You’ll find that you have a growing list of attributes and methods and that your files are becoming
+#..lengthy. In these situations, you might recognize that part of one class can be written as a separate class. You can break your large class into smaller classes that work together.
+#For example, if we continue adding detail to the ElectricCar class, we might notice that we’re adding many attributes and methods specific to the car’s battery. When we see this happening, we can stop and move those
+#...attributes and methods to a separate class called Battery. Then we can use a Battery instance as an attribute in the ElectricCar class:
+class Battery:#We define a new class Battery that doesn't inherit from any other class
+    """A simple attempt to model a battery for an electric car"""
+    def __init__(self, battery_size=75):#The __init__() method here has one parameter, battery_size, in addition to self. This is an optional parameter that sets the battery's size to 75 of no value is provided.
+        """Initialize the battery's attributes"""
+        self.battery_size = battery_size
+    def describe_battery(self):#The method describe battery has been moved to this class as well.
+        """Print a statement describing the battery size."""
+        print(f"This car has a {self.battery_size}-kWh battery.")
+class ElectricCar(Car):
+    """Represent aspects of a car, specific to electric vehicles."""
+    def __init__(self, make, model, year):
+        """Initialize attributes of the Parent class.
+        Then initialize attributes specific to an electric car"""
+        super().__init__(make, model, year)
+#In the ElectricCar class, we now add an attribute called self.battery. The line below tells Python to create a new instance of Battery(with a default size of 75, because we're not specifying value) and assign that instance to the attribute self.battery. This will  happen every time the __init__() method is called' any ElectricCar instance will now have a Battery instance created automatically
+        self.battery = Battery()
+
+my_tesla = ElectricCar('tesla', 'model s', 2019)#We create an electric car and assign it to the variable my_tesla. When we want to describe the battery, we need to work through the car’s battery attribute:
+print(my_tesla.get_descriptive_name())
+my_tesla.battery.describe_battery()#This line tells Python to look at the instance my_tesla, find it's battery attribute, and call the method describe_battery() that's associated with the Battery instance stored in the attribute.
+#NOTE:This looks like a lot of extra work, but now we can describe the battery in as much detail as we want without cluttering the ElectricCar class. Let’s add another method to Battery that reports the range of the car based on the battery size:
+class Battery:
+    """A simple attempt to model a battery for an electric car"""
+    def __init__(self, battery_size=75):
+        """Initialize the battery's attributes"""
+        self.battery_size = battery_size
+    def describe_battery(self):
+        """Print a statement describing the battery size."""
+        print(f"This car has a {self.battery_size}-kWh battery.")
+    def get_range(self):
+        """Print a statement about the range this battery provides."""
+        if self.battery_size == 75:
+            range = 260
+        elif self.battery_size == 100:
+            range = 315
+        print(f"This car can go about {range} miles on full charge")
+class ElectricCar(Car):
+    """Represent aspects of a car, specific to electric vehicles."""
+    def __init__(self, make, model, year):
+        """Initialize attributes of the Parent class.
+        Then initialize attributes specific to an electric car"""
+        super().__init__(make, model, year)
+        self.battery = Battery()
+my_tesla = ElectricCar('tesla', 'model s', 2019)
+print(my_tesla.get_descriptive_name())
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
+
+#NOTE:NOTE:BONUS TIP
+#Some of the things to note while working with classes and instances is how texts are highlighted
+#If the instance you created is connected to an attribute from the class then the whole text will be in blue as shown below
+my_tesla.odometer_reading = 24
+#And if the instance you created is trying to connect or is connected to a method in the class , then the method from the class will be in colour yellow, while the name of the instance will be in blue.
+my_tesla.read_odometer()
+
+
+#Imporing Classes
+#Let’s create a module containing just the Car class. This brings up a subtle naming issue:
+#Refer to carClass.py and my_carClass.py for further illustrations.
+#Importing classes is an effective way to program. Picture how long this program file would be if the entire Car class were included. When you instead move the class to a module and import the module, you still get all the same functionality, but you keep your main program file clean and easy
+#.....to read. You also store most of the logic in separate files; once your classes work as you want them to, you can leave those files alone and focus on the higher-level logic of your main program
+
+#Storing Multiple Classes in a Module
+#You can store as many classes as you need in a single module, although each class in a module should be related somehow. The classes Battery and ElectricCar both help represent cars, so let’s add them to the module carClass.py
+
+#Importing Multiple Classes from a Module
+#You can import as many classes as you need into a program file. If we want to make a regular car and an electric car in the same file, we need to import both classes, Car and ElectricCar: (Refer to my_elctric_car.py)
+
+#Importing an entire module( Refer to my_electric_car.py)
+#You can also import an entire module and then access the classes you need using dot notation. This approach is simple and results in code that is easy to read. Because every call that creates an instance of a class includes the module name, you won’t have naming conflicts with any names used in the current file.
+
+
+#Importing All Classes from a Module
+#You can import every class from a module using the following syntax: 
+#.....from module_name import *
+#NOTE:NOTE:This method is not recommended for two reasons. First, it’s helpful to be able to read the import statements at the top of a file and get a clear sense of which classes a program uses. With this approach it’s unclear which classes you’re using from the module. This approach can also lead to confusion with names in the file. If you accidentally import a class with the same name as something else in your program file, you can create errors that are hard
+#..to diagnose. I show this here because even though it’s not a recommended approach, you’re likely to see it in other people’s code at some point. If you need to import many classes from a module, you’re better off importing the entire module and using the module_name.ClassName syntax. You won’t see all the classes used at the top of the file, but you’ll see clearly where the module is used in the program. You’ll also avoid the potential naming conflicts that can arise when you import every class in a module.
+
+
+#Importing a Module into a Module(Page 216/ 178)
+#Sometimes you’ll want to spread out your classes over several modules to keep any one file from growing too large and avoid storing unrelated classes in the same module. When you store your classes in several modules, you may find that a class in one module depends on a class in another module. When this happens, you can import the required class into the first module.
+#For example, let’s store the Car class in one module and the ElectricCar and Battery classes in a separate module. We’ll make a new module called electric_car.py—replacing the electric_car.py file we created earlier—and copy just the Battery and ElectricCar classes into this file
+#The class ElectricCar needs access to its parent class Car, so we import Car directly into the module at u. If we forget this line, Python will raise an error when we try to import the electric_car module. We also need to update the Car module so it contains only the Car class:
+
+
+#Using Aliases
+#As you saw in Chapter 8, aliases can be quite helpful when using modules to organize your projects’ code. You can use aliases when importing classes as well. As an example, consider a program where you want to make a bunch of electric cars. It might get tedious to type (and read) ElectricCar over and over again. You can give ElectricCar an alias in the import statement:
+from carClass import ElectricCar as EC
+#Now you can use this alias whenever you want to make an electric car:
+my_tesla = EC('tesla', 'roadster', 2019)
