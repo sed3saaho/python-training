@@ -1,53 +1,13 @@
-class Car:
-    """A simple attempt to represent a car."""
-    def __init__(self, make, model, year):
-        """Initialize attributes to describe a car."""
-        self.car_make = make
-        self.car_model = model
-        self.car_year = year
-        self.odometer_reading = 0
-    def get_descriptive_name(self):
-         """Return a neatly formatted descriptive name."""
-         long_name = f"{self.car_year} {self.car_make} {self.car_model}"
-         return long_name.title()
-    def read_odometer(self):
-        """Print a statement showing the car's mileage"""
-        print(f"This car has {self.odometer_reading} miles on it.")
-    def update_odometer(self, mileage):
-        """Set the odometer reading to the given Value. Reject the change if it attempts to roll the odometer back."""
-        if mileage >= self.odometer_reading:
-            self.odometer_reading = mileage
-        else:
-            print("You can't roll back an odometer!")
-    def increment_odometer(self, miles):
-        """Add the given amount to the odometer reading"""
-        if miles > 0:
-            self.odometer_reading += miles
-        else:
-            print("You can't inclde a negative value")
+print("Give me two numbers and then i will add them for you")
+first_number = input("Enter the 1st number: ")
+second_number = input("Enter the 2nd Number: ")
 
-class ElectricCar(Car):
-    """Represent aspects of a car, specific to electric vehicles."""
-    def __init__(self, make, model, year):
-        """Initialize attributes of the parent class."""
-        super().__init__(make, model, year)
-
-my_tesla = ElectricCar('tesla', 'model s', 2019)
-print(my_tesla.get_descriptive_name())
-
-class ElectricCar(Car):
-    """Represent aspects of a car, specific to electric vehicles."""
-    def __init__(self, make, model, year):
-        """Initialize attributes of the Parent class.
-        Then initialize attributes specific to an electric car."""
-        super().__init__(make, model, year)
-        self.battery_size = 75
-    
-    def describe_battery(self):
-        """Print a statement describing the battery size."""
-        print(f"This car has a {self.battery_size}-kWh battery.")
-my_tesla = ElectricCar('tesla', 'model s', 2019)
-print(my_tesla.get_descriptive_name())
-my_tesla.describe_battery()
-
+try:
+    total = int(first_number) + int(second_number)
+    print(f"The Sum of {first_number} and {second_number} is: {total}")
+except ValueError:
+    if type(first_number) != int:
+        print(f"{first_number} is not an integer")
+    else:
+        print(f"{second_number} is not an integer")
 

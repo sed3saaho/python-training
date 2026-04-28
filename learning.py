@@ -40,6 +40,13 @@ name = "erick omondi"
 name = name.upper()
 greeting = f"Hello {name} How are you this fine morning"
 print(greeting)
+
+#Split method in a string
+#The split() method separates a string into parts wherever it finds a space and stores all the parts of the string in a list. The result is a list of words from the string, although some punctuations may also appear with some of the words.
+contents = "Alice in Wonderland"
+words = contents.split()
+num_words = len(words)
+print(f"The number of words in {contents} is {num_words}")
 #Numbers
 #python uses two multiplication symbols to represent exponents
 exponents = 3 ** 2 #equals 9

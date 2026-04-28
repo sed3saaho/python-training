@@ -459,3 +459,75 @@ my_tesla.battery.get_range()
 
 
 
+#Python Standard Library
+from random import randint
+class Dice:
+    def __init__(self, sides=6, times=1):
+        self.dice_sides = sides
+        self.roll_times = times
+    
+    def roll_dice(self):
+        """Return a random number between 1 and the number of sides."""
+        return randint(1, self.dice_sides)
+play_game = Dice(10,20)
+
+print(f"Rolling a {play_game.dice_sides}-sided die {play_game.roll_times} times:\n")
+
+for i in range(play_game.roll_times):
+    result = play_game.roll_dice()
+    print(f"This is roll number {i + 1}: You got a {result}")
+
+
+from random import choice
+numbers = list(range(1,11))
+list2 = ['a', 'b', 'c', 'd', 'e']
+final_list = numbers + list2
+
+
+#A list to store the winning tickets
+winning_tickets =  []
+print("Any ticket matching these 4 numbers or letters wins a prize:")
+
+for i in range(4):#repeat the loop four times
+    pulled_item = choice(final_list)#select an element at random from final_list and assign it to variable pulled_item
+    winning_tickets.append(pulled_item)#append or add the  selected element from choice to the list winning_tickets
+#Print the final winning combination
+print(f"-----{winning_tickets}----")
+
+from random  import sample
+
+numbers = list(range(1, 11))
+letters = ['a', 'b', 'c', 'd', 'e']
+pool = numbers + letters
+my_ticket = [1, 'a', 7, 'e']
+winning_ticket = []
+attempts = 0
+
+
+print("Starting the lottery simulation...")
+
+while True:
+    winning_ticket = sample(pool, 4)
+    attempts += 1
+
+    if winning_ticket == my_ticket:
+        False
+        
+    if attempts > 1_000_000:
+        print("Giving up after 1 million tries!")
+        break
+    
+
+print(f"\nWinning Ticket: {winning_ticket}")
+print(f"Your Ticket: {my_ticket}")
+print(f"It took {attempts} iterations to win the lottery!")
+
+    
+    
+
+
+
+
+
+
+
